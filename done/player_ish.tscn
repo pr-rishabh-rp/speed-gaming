@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://hxdp8k5d3k0k"]
+
+[ext_resource type="Texture2D" uid="uid://kdexnudcym2u" path="res://boruto-stationary.png" id="1_gty3e"]
+[ext_resource type="Script" path="res://player_ish.gd" id="1_wrj2j"]
+[ext_resource type="Texture2D" uid="uid://46g0namtf82l" path="res://boruto-stationary-2.png" id="2_1xsir"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="4_icef2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqmxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gty3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1xsir")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.5
+}]
+
+[node name="Player-ish" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_wrj2j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -35)
+sprite_frames = SubResource("SpriteFrames_oqmxb")
+frame = 1
+frame_progress = 0.580244
+metadata/_edit_group_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("4_icef2")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+position = Vector2(0, -35)
+polygon = PackedVector2Array(0, -11, 0, -35, -2, -35, -4, -35, -7, -33, -8, -31, -7, -29, -6, -29, -6, -27, -6, -25, -6, -23, -4, -22, -4, -19, -6, -18, -9, -15, -12, -9, -12, -2, -16, 17, -12, 17, -9, 13, -6, 22, -5, 28, -5, 30, -10, 35, -1, 35, -1, 21, 0, 16, 2, 13, 5, 16, 6, 21, 6, 35, 15, 35, 15, 32, 10, 31, 10, 21, 11, 16, 14, 16, 13, 3, 12, -2, 10, -12, 8, -15, 4, -19, 5, -22, 6, -22, 6, -27, 8, -29, 8, -32, 7, -34, 0, -35)
+metadata/_edit_group_ = true

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjicvima2d0yg"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_t3jow"]
+[ext_resource type="PackedScene" uid="uid://ustupnlxpn7f" path="res://level_ish.tscn" id="2_rdeox"]
+[ext_resource type="PackedScene" uid="uid://hxdp8k5d3k0k" path="res://player_ish.tscn" id="3_14ff5"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_t3jow")
+
+[node name="Level-ish" parent="." instance=ExtResource("2_rdeox")]
+
+[node name="Player-ish" parent="." instance=ExtResource("3_14ff5")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(138, 515)
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.01
+
+[connection signal="timeout" from="Timer" to="Player-ish" method="_on_timer_timeout"]
